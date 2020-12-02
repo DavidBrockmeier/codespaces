@@ -5,15 +5,15 @@ Import-Module "C:\Program Files\WindowsPowerShell\Modules\Win10\Win10.psm1"
 DisableActivityHistory
 DisableAdvertisingID
 DisableAppSuggestions
-DisableAutoplay
-DisableAutorun
-DisableCortana
+# DisableAutoplay
+# DisableAutorun
+# DisableCortana
 DisableDiagTrack
 DisableErrorReporting
 DisableFastStartup
-DisableFeedback
+# DisableFeedback
 DisableMaintenanceWakeUp
-DisableScriptHost
+EnableScriptHost
 DisableSharedExperiences
 DisableTailoredExperiences
 DisableTelemetry
@@ -21,7 +21,6 @@ DisableUpdateAutoDownload
 DisableUpdateRestart
 DisableUWPBackgroundApps
 DisableWAPPush
-DisableWebLangList
 DisableWiFiSense
 EnableAdminShares
 EnableDotNetStrongCrypto
@@ -36,11 +35,7 @@ SetP2PUpdateLocal
 
 powercfg /change standby-timeout-ac 0
 # Enable-PSRemoting
-# Set-DnsClientServerAddress
-# Set-DnsClientServerAddress -ResetServerAddresses -InterfaceAlias Ethernet -ServerAddresses 192.168.1.19,192.168.1.133
-# Set-DnsClientServerAddress -InterfaceAlias Ethernet -ServerAddresses 192.168.1.19,192.168.1.133
-# Get-NetIPAddress -AddressFamily IPv6 -Type Unicast | Remove-NetIPAddress
-# Get-NetAdapterPowerManagement | Set-NetAdapterPowerManagement -WakeOnMagicPacket Enabled -WakeOnPattern Enabled
+Get-NetAdapterPowerManagement | Set-NetAdapterPowerManagement -WakeOnMagicPacket Enabled -WakeOnPattern Enabled
 
 # Get the current build number for the Windows 10 version.
 $Build = Get-CimInstance -ClassName Win32_OperatingSystem | Select-Object -ExpandProperty BuildNumber
