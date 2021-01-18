@@ -1,3 +1,4 @@
+net use S: /delete
 net use S: \\192.168.1.24\Scans /persistent:yes
 # rd -Force -Recurse "C:\Program Files\WindowsPowerShell\Modules\Win10\"
 # mkdir -f "C:\Program Files\WindowsPowerShell\Modules\Win10\"
