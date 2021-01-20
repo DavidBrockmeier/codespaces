@@ -1,5 +1,12 @@
 $ErrorActionPreference = "SilentlyContinue"
 
+Set-DnsClient -ResetConnectionSpecificSuffix -InterfaceAlias *
+Set-DnsClient -ConnectionSpecificSuffix optometrist.local -RegisterThisConnectionsAddress $true -UseSuffixWhenRegistering $true -InterfaceAlias *
+# netsh wlan delete profile name=* i=*
+# netsh wlan delete profile name=SouthCoastOptometry i=*
+# netsh wlan delete profile name=linksys i=*
+# net use S: /delete
+# net use S: \\192.168.1.24\Scans /persistent:yes
 # EnableLLDP;EnableLLMNR;EnableLLTD;EnableNetDevicesAutoInst;DisableHomeGroups;EnableNetBIOS;EnableIPv6;EnableRemoteDesktop;DisableMediaSharing
 # Get-Service fdPHost,FDResPub | Set-Service -StartupType Automatic | Start-Service
 # Get-NetAdapter | ? MediaConnectionState -eq Connected | Set-NetAdapterBinding -Enabled $true -ComponentID ms_lldp,ms_lltdio,ms_rspndr,ms_tcpip6
@@ -51,8 +58,8 @@ SetCurrentNetworkPrivate
 SetP2PUpdateLocal
 SetUnknownNetworksPrivate
 
-net use S: /delete
-net use S: \\192.168.1.24\Scans /persistent:yes /user:guest
+#net use S: /delete
+#net use S: \\192.168.1.24\Scans /persistent:yes /user:guest
 
 Enable-PSRemoting
 winrm.cmd quickconfig -q
